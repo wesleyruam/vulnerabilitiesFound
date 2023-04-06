@@ -1,0 +1,30 @@
+Relatório de Vulnerabilidade - Cacador.sc.gov.br
+
+Resumo da vulnerabilidade:
+
+Uma vulnerabilidade de injeção de scripts entre sites (XSS) foi identificada no site cacador.sc.gov.br. A vulnerabilidade permite que um atacante injete e execute código malicioso no navegador do usuário, o que pode levar a roubo de informações ou ações maliciosas em nome do usuário.
+
+Descrição da vulnerabilidade:
+
+Ao acessar um diretório inexistente no site, a página retorna uma mensagem de erro que inclui o nome do diretório inexistente na URL. Quando essa URL é manipulada com um script malicioso, é possível explorar uma vulnerabilidade de XSS.
+
+Um atacante pode inserir código malicioso na URL, como por exemplo:
+
+/"><script>alert(1)</script>
+
+Isso faz com que o código seja codificado na URL e seja enviado ao servidor. O servidor decodifica o código e o insere na mensagem de erro, que é exibida no navegador do usuário.
+
+No entanto, é possível manipular a solicitação HTTP usando uma ferramenta como o Burp Proxy, para que o código malicioso não seja codificado na URL. Com isso, é possível exibir um alerta no navegador do usuário, como foi demonstrado.
+
+Impacto da vulnerabilidade:
+
+Um atacante pode explorar essa vulnerabilidade para roubar informações do usuário, como credenciais de login ou informações pessoais. Além disso, o atacante pode realizar ações maliciosas em nome do usuário, como fazer compras online, acessar contas bancárias ou enviar mensagens de phishing.
+
+Recomendações:
+
+Recomenda-se que a equipe responsável pelo site corrija a vulnerabilidade o mais rápido possível, aplicando as devidas correções no código e realizando testes para garantir que a vulnerabilidade não seja reintroduzida.
+
+Enquanto isso, é recomendável que os usuários evitem acessar diretórios inexistente no site e utilizem uma ferramenta de segurança, como um firewall ou um antivírus, para proteger seus sistemas.
+
+Att. Wesley Ruan
+
